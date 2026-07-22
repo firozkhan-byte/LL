@@ -1,0 +1,747 @@
+MASTER PROMPT (Use Before Every Module)
+You are a Senior Enterprise Software Architect and Laravel 12 Expert.
+
+Build an Enterprise Grade ERP System for a Multi-Branch Liquor Retail Company similar to Living Liquidz.
+
+Technology Stack
+
+• Laravel 12
+• PHP 8.4
+• MySQL
+• Tailwind CSS
+• Livewire 3
+• Alpine.js
+• Laravel Breeze Authentication
+• Spatie Permission
+• Laravel Excel
+• Laravel Queue
+• Redis Cache
+• REST API
+• Docker Ready
+• Repository Pattern
+• Service Pattern
+• Form Requests
+• Policy Authorization
+• Events & Listeners
+• Notifications
+• Jobs & Queues
+• Activity Logs
+• Soft Delete
+• Audit Trail
+• UUID Primary Keys
+• API Resources
+• Laravel Pint
+• PHPUnit Tests
+
+Coding Standards
+
+Create production-ready enterprise code.
+
+Every module should include
+
+• Database Design
+• Migrations
+• Models
+• Relationships
+• Seeders
+• Factories
+• Controllers
+• Services
+• Repositories
+• Form Requests
+• Validation
+• Routes
+• Policies
+• Middleware
+• Livewire Components
+• Blade Views
+• Tailwind UI
+• Filters
+• Search
+• Pagination
+• Import Export
+• Activity Logs
+• Unit Tests
+• Feature Tests
+• API Endpoints
+• Documentation
+
+Use enterprise architecture.
+
+Never skip files.
+
+Generate complete code.
+MODULE 1 – Authentication & User Management
+Create Module 1
+
+Authentication & User Management
+
+Features
+
+• Login
+• Logout
+• Forgot Password
+• Reset Password
+• Email Verification
+• Two Factor Authentication
+• User Registration
+• User Profile
+• Change Password
+• User Avatar
+• Activity Logs
+
+Roles
+
+Super Admin
+CEO
+Regional Manager
+Store Manager
+Warehouse Manager
+Cashier
+Sales Executive
+Inventory Manager
+Finance Manager
+HR Manager
+Marketing Manager
+Delivery Executive
+
+Permissions
+
+Dynamic Role Permission using Spatie Permission
+
+Include
+
+Database
+CRUD
+Policies
+API
+Responsive UI
+Audit Logs
+
+MODULE 2 – Company Management
+Build Company Management Module.
+
+Features
+
+Multi Company
+Company Settings
+Branches
+Warehouses
+Stores
+Departments
+Cost Centers
+Business Units
+Regional Offices
+
+Include
+
+CRUD
+Tree Structure
+Branch Mapping
+Store Mapping
+Warehouse Mapping
+Company Settings
+Approval Workflow
+Reports
+REST API
+
+MODULE 3 – Product Management
+Build Enterprise Product Management.
+
+Include
+
+Products
+
+Brands
+
+Categories
+
+Sub Categories
+
+Manufacturers
+
+Countries
+
+Regions
+
+Liquor Type
+
+Bottle Size
+
+Volume
+
+Alcohol %
+
+MRP
+
+Selling Price
+
+Purchase Price
+
+Barcode
+
+QR Code
+
+SKU
+
+HSN
+
+GST
+
+Images
+
+Multiple Images
+
+Product Attributes
+
+Tags
+
+Variants
+
+Inventory Settings
+
+Expiry Tracking
+
+Batch Tracking
+
+Serial Tracking
+
+Import Excel
+
+Export Excel
+
+Advanced Filters
+
+Search
+
+REST API
+
+Dashboard
+
+MODULE 4 – Supplier Management
+Create Supplier Management.
+
+Features
+
+Supplier Profile
+
+Contacts
+
+GST
+
+PAN
+
+Bank Accounts
+
+Payment Terms
+
+Documents
+
+Vendor Rating
+
+Vendor Performance
+
+Purchase History
+
+Outstanding Balance
+
+Supplier Portal
+
+Supplier Approval
+
+REST API
+
+Reports
+
+Dashboard
+
+MODULE 5 – Purchase Management
+Create Enterprise Purchase Module.
+
+Workflow
+
+Purchase Request
+
+↓
+
+Approval
+
+↓
+
+RFQ
+
+↓
+
+Quotation
+
+↓
+
+Comparison
+
+↓
+
+Purchase Order
+
+↓
+
+Goods Receipt Note
+
+↓
+
+Purchase Invoice
+
+↓
+
+Payment
+
+↓
+
+Purchase Return
+
+Include
+
+Approval Workflow
+
+Notifications
+
+Reports
+
+Dashboard
+
+API
+
+MODULE 6 – Warehouse Management
+Create Warehouse Module.
+
+Features
+
+Warehouse
+
+Rack
+
+Shelf
+
+Bin
+
+Putaway
+
+Picking
+
+Packing
+
+Dispatch
+
+Barcode Scanner
+
+QR Scanner
+
+Stock Transfer
+
+Cycle Counting
+
+Stock Adjustment
+
+Mobile Friendly
+
+Dashboard
+
+Reports
+
+API
+MODULE 7 – Inventory Management
+Build Inventory Management.
+
+Features
+
+Real Time Stock
+
+Batch
+
+Lot
+
+Expiry
+
+Damaged
+
+Lost
+
+Transferred
+
+Reserved
+
+Available Stock
+
+Opening Stock
+
+Closing Stock
+
+Stock Ledger
+
+Inventory Adjustment
+
+Cycle Count
+
+Stock Valuation
+
+FIFO
+
+LIFO
+
+Weighted Average
+
+Dashboard
+
+Reports
+
+API
+MODULE 8 – POS System
+Build Enterprise POS.
+
+Features
+
+Touch Screen POS
+
+Barcode Scanner
+
+QR Scanner
+
+Customer Lookup
+
+Membership
+
+Loyalty
+
+Discount
+
+Coupons
+
+Gift Cards
+
+Split Payment
+
+Cash
+
+Card
+
+UPI
+
+Wallet
+
+Receipt Printing
+
+Kitchen Printer Support
+
+Offline Mode
+
+Dashboard
+
+API
+MODULE 9 – Sales Management
+Create Sales Module.
+
+Sales Orders
+
+Invoices
+
+Returns
+
+Credit Notes
+
+Debit Notes
+
+Customer Orders
+
+Online Orders
+
+Corporate Orders
+
+Wholesale
+
+Delivery Orders
+
+Order Tracking
+
+Sales Analytics
+
+Dashboard
+
+REST API
+MODULE 10 – Customer CRM
+Build CRM Module.
+
+Customer Profile
+
+Membership
+
+Loyalty
+
+Wallet
+
+Reward Points
+
+Purchase History
+
+Birthdays
+
+Anniversaries
+
+Preferences
+
+Feedback
+
+Complaints
+
+Support Tickets
+
+Email Campaign
+
+SMS
+
+WhatsApp
+
+Dashboard
+
+Reports
+
+API
+MODULE 11 – Finance
+Build Finance Module.
+
+Chart Of Accounts
+
+General Ledger
+
+Journal
+
+Payments
+
+Receipts
+
+Cash Book
+
+Bank Book
+
+Expenses
+
+Income
+
+Trial Balance
+
+Balance Sheet
+
+Profit Loss
+
+Budget
+
+Assets
+
+Depreciation
+
+Financial Dashboard
+
+Reports
+
+API
+MODULE 12 – GST & Excise Compliance
+Build GST and Excise Module.
+
+GST
+
+HSN
+
+Tax
+
+GST Reports
+
+GSTR1
+
+GSTR3B
+
+Input Credit
+
+Output Tax
+
+Excise License
+
+Excise Duty
+
+Daily Excise Register
+
+Stock Register
+
+Permit Tracking
+
+License Renewal
+
+Government Reports
+
+Compliance Dashboard
+
+REST API
+MODULE 13 – HRMS
+Create Enterprise HRMS.
+
+Employees
+
+Attendance
+
+Biometric
+
+Leave
+
+Payroll
+
+Shifts
+
+Holidays
+
+Recruitment
+
+Performance
+
+Documents
+
+Assets
+
+Training
+
+Exit Process
+
+Dashboard
+
+Reports
+
+API
+MODULE 14 – Delivery Management
+Build Delivery Module.
+
+Delivery Boy
+
+Vehicles
+
+Route Planning
+
+GPS
+
+OTP Delivery
+
+Proof Of Delivery
+
+Signature
+
+Photo Upload
+
+Tracking
+
+Dashboard
+
+Reports
+
+API
+MODULE 15 – Reports & Analytics
+Build Enterprise Reports.
+
+Sales
+
+Purchase
+
+Inventory
+
+Finance
+
+GST
+
+Excise
+
+Customers
+
+Suppliers
+
+Warehouse
+
+HR
+
+Branch
+
+Store
+
+Regional
+
+Profit
+
+Loss
+
+Stock Aging
+
+Fast Moving
+
+Slow Moving
+
+Dead Stock
+
+Charts
+
+Graphs
+
+Export PDF
+
+Export Excel
+
+Scheduled Reports
+
+Email Reports
+
+Dashboard
+MODULE 16 – AI & Business Intelligence
+Build AI and BI Module.
+
+Demand Forecasting
+
+Sales Forecast
+
+Purchase Suggestions
+
+Inventory Prediction
+
+AI Chat Assistant
+
+Executive Dashboard
+
+Heat Maps
+
+KPI Monitoring
+
+Predictive Analytics
+
+Customer Segmentation
+
+Recommendation Engine
+
+Branch Performance
+
+Regional Performance
+
+CEO Dashboard
+
+Real Time Charts
+
+REST API
+Recommended Development Order
+Authentication & User Management
+Company & Branch Management
+Product Management
+Supplier Management
+Purchase Management
+Warehouse Management
+Inventory Management
+Customer CRM
+POS System
+Sales Management
+Finance
+GST & Excise Compliance
+HRMS
+Delivery Management
+Reports & Analytics
+AI & Business Intelligence
+
+This sequence ensures that each module builds on the previous one, resulting in a scalable enterprise ERP suitable for a multi-store liquor retail business like Living Liquidz.
