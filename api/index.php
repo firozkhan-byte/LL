@@ -5,10 +5,19 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-// Force APP_DEBUG to true so Laravel shows the exact error message
+// Force APP_DEBUG to true so Laravel shows exact traces
 putenv('APP_DEBUG=true');
 $_ENV['APP_DEBUG'] = 'true';
 $_SERVER['APP_DEBUG'] = 'true';
+
+// Use cookie session driver & array cache store for serverless compatibility
+putenv('SESSION_DRIVER=cookie');
+$_ENV['SESSION_DRIVER'] = 'cookie';
+$_SERVER['SESSION_DRIVER'] = 'cookie';
+
+putenv('CACHE_STORE=array');
+$_ENV['CACHE_STORE'] = 'array';
+$_SERVER['CACHE_STORE'] = 'array';
 
 // Set fallback APP_KEY if not configured in Vercel environment
 if (!getenv('APP_KEY')) {
@@ -49,13 +58,9 @@ putenv('APP_EVENTS_CACHE=/tmp/storage/bootstrap/cache/events.php');
 $dbConnection = getenv('DB_CONNECTION') ?: 'sqlite';
 if ($dbConnection === 'sqlite') {
     $tmpDb = '/tmp/database/database.sqlite';
-    if (!file_exists($tmpDb)) {
-        $sourceDb = __DIR__ . '/../database/database.sqlite';
-        if (file_exists($sourceDb)) {
-            @copy($sourceDb, $tmpDb);
-        } else {
-            @touch($tmpDb);
-        }
+    if (!file_exists($tmpDb) || filesize($tmpDb) === 0) {
+        @touch($tmpDb);
+        $GLOBALS['shouldMigrate'] = true;
     }
     putenv("DB_DATABASE={$tmpDb}");
     $_ENV['DB_DATABASE'] = $tmpDb;
@@ -64,6 +69,7 @@ if ($dbConnection === 'sqlite') {
 
 // Forward Vercel request to public/index.php
 require __DIR__ . '/../public/index.php';
+
 
 
 

@@ -22,4 +22,14 @@ if (is_dir('/tmp')) {
     $app->useStoragePath('/tmp/storage');
 }
 
+// Auto-run database migrations if temporary SQLite is fresh
+if (!file_exists('/tmp/database/migrated.flag')) {
+    try {
+        @touch('/tmp/database/migrated.flag');
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+    } catch (\Throwable $e) {
+        // Continue if migration runs or fails
+    }
+}
+
 $app->handleRequest(Request::capture());
