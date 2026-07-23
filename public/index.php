@@ -22,6 +22,11 @@ if (is_dir('/tmp')) {
     $app->useStoragePath('/tmp/storage');
 }
 
+// Bootstrap HTTP kernel so DB connection and Facades are initialized
+/** @var \Illuminate\Contracts\Http\Kernel $kernel */
+$kernel = $app->make(\Illuminate\Contracts\Http\Kernel::class);
+$kernel->bootstrap();
+
 // Auto-run database migrations and seeders if tables are missing
 try {
     if (!\Illuminate\Support\Facades\Schema::hasTable('users')) {
