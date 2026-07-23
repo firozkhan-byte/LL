@@ -22,15 +22,14 @@ if (is_dir('/tmp')) {
     $app->useStoragePath('/tmp/storage');
 }
 
-// Auto-run database migrations if temporary SQLite is fresh
-if (!file_exists('/tmp/database/migrated.flag')) {
-    try {
-        @touch('/tmp/database/migrated.flag');
+// Auto-run database migrations and seeders if tables are missing
+try {
+    if (!\Illuminate\Support\Facades\Schema::hasTable('users')) {
         \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
         \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
-    } catch (\Throwable $e) {
-        // Continue if migration runs or fails
     }
+} catch (\Throwable $e) {
+    // Continue if migration check fails
 }
 
 $app->handleRequest(Request::capture());
