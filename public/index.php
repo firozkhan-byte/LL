@@ -22,10 +22,10 @@ if (is_dir('/tmp')) {
     $app->useStoragePath('/tmp/storage');
 }
 
-// Auto-run database migrations and seeders if tables or default users are missing
+// Auto-run database migrations and seeders if activity_log table or default users are missing
 $app->booted(function () {
     try {
-        if (!\Illuminate\Support\Facades\Schema::hasTable('users')) {
+        if (!\Illuminate\Support\Facades\Schema::hasTable('activity_log')) {
             \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
         }
         
