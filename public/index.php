@@ -17,15 +17,24 @@ require __DIR__.'/../vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
-// Override storage path for serverless environments (Vercel)
+// Override storage path and SQLite database path for serverless environments (Vercel)
 if (is_dir('/tmp')) {
     $app->useStoragePath('/tmp/storage');
+
+    $tmpDb = '/tmp/database/database.sqlite';
+    if (!file_exists($tmpDb) || filesize($tmpDb) === 0) {
+        @mkdir('/tmp/database', 0755, true);
+        @touch($tmpDb);
+    }
+    config(['database.connections.sqlite.database' => $tmpDb]);
 }
 
 // Bootstrap HTTP kernel so DB connection and Facades are initialized
 /** @var \Illuminate\Contracts\Http\Kernel $kernel */
 $kernel = $app->make(\Illuminate\Contracts\Http\Kernel::class);
 $kernel->bootstrap();
+
+\Illuminate\Support\Facades\DB::purge('sqlite');
 
 // Auto-run database migrations and seeders if tables are missing
 try {
