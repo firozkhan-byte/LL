@@ -61,11 +61,14 @@ putenv('APP_EVENTS_CACHE=/tmp/storage/bootstrap/cache/events.php');
 
 // 3. Handle SQLite database in /tmp if sqlite driver is used
 $dbConnection = getenv('DB_CONNECTION') ?: 'sqlite';
+putenv("DB_CONNECTION={$dbConnection}");
+$_ENV['DB_CONNECTION'] = $dbConnection;
+$_SERVER['DB_CONNECTION'] = $dbConnection;
+
 if ($dbConnection === 'sqlite') {
     $tmpDb = '/tmp/database/database.sqlite';
     if (!file_exists($tmpDb) || filesize($tmpDb) === 0) {
         @touch($tmpDb);
-        $GLOBALS['shouldMigrate'] = true;
     }
     putenv("DB_DATABASE={$tmpDb}");
     $_ENV['DB_DATABASE'] = $tmpDb;
