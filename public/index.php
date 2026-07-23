@@ -34,7 +34,7 @@ try {
         \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
     }
 } catch (\Throwable $e) {
-    // Continue if migration check fails
+    throw new \RuntimeException("Migration / Seeding Error: " . $e->getMessage() . " in " . $e->getFile() . " on line " . $e->getLine());
 }
 
 $app->handleRequest(Request::capture());
