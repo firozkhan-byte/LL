@@ -22,14 +22,14 @@ if (is_dir('/tmp')) {
     $app->useStoragePath('/tmp/storage');
 }
 
-// Auto-run database migrations and seeders if activity_log table or default users are missing
+// Auto-run database migrations and seeders if activity_log table or default admin user is missing
 $app->booted(function () {
     try {
         if (!\Illuminate\Support\Facades\Schema::hasTable('activity_log')) {
             \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
         }
         
-        if (\App\Models\User::count() === 0) {
+        if (!\App\Models\User::where('email', 'admin@livingliquidz.com')->exists()) {
             \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
         }
     } catch (\Throwable $e) {
