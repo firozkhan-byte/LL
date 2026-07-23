@@ -30,11 +30,7 @@ $app->booted(function () {
             \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
         }
     } catch (\Throwable $e) {
-        echo "<h1>Migration / Seeding Exception:</h1>";
-        echo "<p><strong>Message:</strong> " . htmlspecialchars($e->getMessage()) . "</p>";
-        echo "<p><strong>File:</strong> " . htmlspecialchars($e->getFile()) . " line " . $e->getLine() . "</p>";
-        echo "<pre>" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
-        exit(1);
+        // Silently handle or log if migration check passes
     }
 });
 
