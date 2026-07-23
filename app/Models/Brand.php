@@ -33,6 +33,6 @@ class Brand extends Model
         return LogOptions::defaults()
             ->logOnly(['name', 'slug'])
             ->logOnlyDirty()
-            ->dontLogEmptyChanges();
+            ->dontSubmitEmptyLogs();
     }
 }

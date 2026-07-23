@@ -60,6 +60,6 @@ class Company extends Model
         return LogOptions::defaults()
             ->logOnly(['name', 'status', 'email', 'phone'])
             ->logOnlyDirty()
-            ->dontLogEmptyChanges();
+            ->dontSubmitEmptyLogs();
     }
 }

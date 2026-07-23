@@ -35,6 +35,6 @@ class CostCenter extends Model
         return LogOptions::defaults()
             ->logOnly(['name', 'code'])
             ->logOnlyDirty()
-            ->dontLogEmptyChanges();
+            ->dontSubmitEmptyLogs();
     }
 }

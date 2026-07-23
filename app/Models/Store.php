@@ -31,6 +31,6 @@ class Store extends Model
         return LogOptions::defaults()
             ->logOnly(['name', 'code', 'status', 'license_number'])
             ->logOnlyDirty()
-            ->dontLogEmptyChanges();
+            ->dontSubmitEmptyLogs();
     }
 }

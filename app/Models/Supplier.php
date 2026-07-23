@@ -78,6 +78,6 @@ class Supplier extends Model
         return LogOptions::defaults()
             ->logOnly(['name', 'code', 'status', 'outstanding_balance'])
             ->logOnlyDirty()
-            ->dontLogEmptyChanges();
+            ->dontSubmitEmptyLogs();
     }
 }

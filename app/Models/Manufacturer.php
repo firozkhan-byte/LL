@@ -27,6 +27,6 @@ class Manufacturer extends Model
         return LogOptions::defaults()
             ->logOnly(['name'])
             ->logOnlyDirty()
-            ->dontLogEmptyChanges();
+            ->dontSubmitEmptyLogs();
     }
 }

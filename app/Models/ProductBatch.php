@@ -44,6 +44,6 @@ class ProductBatch extends Model
         return LogOptions::defaults()
             ->logOnly(['batch_number', 'expiry_date', 'selling_price', 'is_markdown', 'markdown_percent', 'status'])
             ->logOnlyDirty()
-            ->dontLogEmptyChanges();
+            ->dontSubmitEmptyLogs();
     }
 }

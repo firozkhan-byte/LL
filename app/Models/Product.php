@@ -120,6 +120,6 @@ class Product extends Model
         return LogOptions::defaults()
             ->logOnly(['name', 'sku', 'mrp', 'selling_price', 'status'])
             ->logOnlyDirty()
-            ->dontLogEmptyChanges();
+            ->dontSubmitEmptyLogs();
     }
 }

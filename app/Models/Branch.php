@@ -47,6 +47,6 @@ class Branch extends Model
         return LogOptions::defaults()
             ->logOnly(['name', 'code', 'status'])
             ->logOnlyDirty()
-            ->dontLogEmptyChanges();
+            ->dontSubmitEmptyLogs();
     }
 }

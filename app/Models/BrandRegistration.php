@@ -37,6 +37,6 @@ class BrandRegistration extends Model
         return LogOptions::defaults()
             ->logOnly(['state', 'excise_code', 'expiry_date', 'status'])
             ->logOnlyDirty()
-            ->dontLogEmptyChanges();
+            ->dontSubmitEmptyLogs();
     }
 }
