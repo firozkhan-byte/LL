@@ -30,10 +30,11 @@ $app->booted(function () {
             \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
         }
     } catch (\Throwable $e) {
-        // Expose error if APP_DEBUG is enabled
-        if (getenv('APP_DEBUG') === 'true') {
-            throw new \RuntimeException("Migration / Seeding Error: " . $e->getMessage() . " in " . $e->getFile() . ":" . $e->getLine());
-        }
+        echo "<h1>Migration / Seeding Exception:</h1>";
+        echo "<p><strong>Message:</strong> " . htmlspecialchars($e->getMessage()) . "</p>";
+        echo "<p><strong>File:</strong> " . htmlspecialchars($e->getFile()) . " line " . $e->getLine() . "</p>";
+        echo "<pre>" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
+        exit(1);
     }
 });
 
