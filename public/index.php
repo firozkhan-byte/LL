@@ -27,6 +27,7 @@ if (!file_exists('/tmp/database/migrated.flag')) {
     try {
         @touch('/tmp/database/migrated.flag');
         \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
     } catch (\Throwable $e) {
         // Continue if migration runs or fails
     }
