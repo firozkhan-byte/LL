@@ -30,7 +30,10 @@ $app->booted(function () {
         }
         
         if (!\App\Models\User::where('email', 'admin@livingliquidz.com')->exists()) {
-            \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+            \Illuminate\Support\Facades\Artisan::call('db:seed', [
+                '--class' => 'Database\\Seeders\\RolesAndPermissionsSeeder',
+                '--force' => true
+            ]);
         }
     } catch (\Throwable $e) {
         // Silently handle if seeding check passes
