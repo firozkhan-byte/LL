@@ -22,15 +22,18 @@ if (is_dir('/tmp')) {
     $app->useStoragePath('/tmp/storage');
 }
 
-// Auto-run database migrations and seeders if tables are missing after app boots
+// Auto-run database migrations and seeders if tables or default users are missing
 $app->booted(function () {
     try {
         if (!\Illuminate\Support\Facades\Schema::hasTable('users')) {
             \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        }
+        
+        if (\App\Models\User::count() === 0) {
             \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
         }
     } catch (\Throwable $e) {
-        // Silently handle or log if migration check passes
+        // Silently handle if seeding check passes
     }
 });
 
