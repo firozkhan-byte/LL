@@ -19,6 +19,11 @@ putenv('CACHE_STORE=array');
 $_ENV['CACHE_STORE'] = 'array';
 $_SERVER['CACHE_STORE'] = 'array';
 
+// Force HTTPS for Vercel SSL Proxy
+$_SERVER['HTTPS'] = 'on';
+$_SERVER['SERVER_PORT'] = 443;
+putenv('HTTPS=on');
+
 // Set fallback APP_KEY if not configured in Vercel environment
 if (!getenv('APP_KEY')) {
     $fallbackKey = 'base64:3qv8kNZQdI2tVU3KJZNbzQNBJt3d2tiMNwKCAGtMXiI=';

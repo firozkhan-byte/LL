@@ -123,6 +123,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (request()->hasHeader('x-forwarded-proto') || env('APP_ENV') === 'production' || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) || is_dir('/tmp')) {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
+
         // Implicitly grant "Super Admin" role all permissions
         Gate::before(function ($user, $ability) {
             return $user->hasRole('Super Admin') ? true : null;
