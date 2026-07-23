@@ -8,7 +8,8 @@
     },
     "build": {
         "env": {
-            "PHP_VERSION": "8.3"
+            "PHP_VERSION": "8.3",
+            "COMPOSER_FLAGS": "--no-dev --no-scripts --prefer-dist --optimize-autoloader"
         }
     },
     "routes": [
