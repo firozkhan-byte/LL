@@ -5,6 +5,19 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
+// Force APP_DEBUG to true so Laravel shows the exact error message
+putenv('APP_DEBUG=true');
+$_ENV['APP_DEBUG'] = 'true';
+$_SERVER['APP_DEBUG'] = 'true';
+
+// Set fallback APP_KEY if not configured in Vercel environment
+if (!getenv('APP_KEY')) {
+    $fallbackKey = 'base64:3qv8kNZQdI2tVU3KJZNbzQNBJt3d2tiMNwKCAGtMXiI=';
+    putenv("APP_KEY={$fallbackKey}");
+    $_ENV['APP_KEY'] = $fallbackKey;
+    $_SERVER['APP_KEY'] = $fallbackKey;
+}
+
 // 1. Create required storage and database directories in /tmp
 $storageDirs = [
     '/tmp/storage/app',
